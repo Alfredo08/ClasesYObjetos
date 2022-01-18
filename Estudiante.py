@@ -30,7 +30,7 @@ class Estudiante:
     
     def imprimeDos( self ):
         self.imprimeInformacion()
-        print( "Mas datos aquí" + self.__programa )
+        print( "Mas datos aquí" )
 
     def promedio( self ):
         suma = 0
