@@ -1,4 +1,6 @@
 class Estudiante:
+    programa = "Web development 3-full-stack"
+    listaEstudiantes = []
     # Constructor  
     def __init__( self, nombre = "N/A", apellido = "N/A", id = -1):
         # Atributos
@@ -6,12 +8,16 @@ class Estudiante:
         self.apellido = apellido
         self.id = id
         self.calificaciones = []
+        
+        Estudiante.listaEstudiantes.append( self )
     
     def imprimeInformacion( self ):
         print( self.nombre + " " + self.apellido + " " + str( self.id ) )
+        return self
 
     def setNombre( self, nuevoNombre ):
         self.nombre = nuevoNombre
+        return self
     
     def setApellido( self, nuevoApellido ):
         self.apellido = nuevoApellido
@@ -38,3 +44,16 @@ class Estudiante:
             suma += x
         calificacionFinal = suma / len( self.calificaciones )
         return calificacionFinal
+
+    @classmethod
+    def imprimeEstudiantes( cls ):
+        for estudiante in cls.listaEstudiantes:
+            estudiante.imprimeInformacion()
+
+    @staticmethod
+    def imrpimeID( identificador ):
+        print( identificador )
+
+    def imprimeInformacionDeAmbosEstudiantes( self, estudiante2 ):
+        self.imprimeInformacion()
+        estudiante2.imprimeInformacion()
